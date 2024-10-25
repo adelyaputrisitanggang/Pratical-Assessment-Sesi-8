@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"examples\/tests\/recipes[1:10]","start":1729859343907,"end":1729859346196,"title":"examples\/tests\/recipes[1:10] 19:29:03.907-19:29:06.196 Analyze Recipe"},{"id":2,"group":1,"content":"examples\/tests\/recipes[2:20]","start":1729859346221,"end":1729859347122,"title":"examples\/tests\/recipes[2:20] 19:29:06.221-19:29:07.122 Search Recipes"},{"id":3,"group":1,"content":"examples\/tests\/recipes[3:31]","start":1729859347140,"end":1729859348212,"title":"examples\/tests\/recipes[3:31] 19:29:07.140-19:29:08.212 Get Recipe Information"},{"id":4,"group":1,"content":"examples\/tests\/recipes[4:41]","start":1729859348223,"end":1729859348861,"title":"examples\/tests\/recipes[4:41] 19:29:08.223-19:29:08.861 Taste By ID"},{"id":5,"group":1,"content":"examples\/tests\/recipes[5:49]","start":1729859348875,"end":1729859354390,"title":"examples\/tests\/recipes[5:49] 19:29:08.875-19:29:14.390 Summarize Recipe"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
